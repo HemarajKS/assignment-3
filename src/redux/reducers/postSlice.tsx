@@ -9,13 +9,14 @@ const initialState = {
   loading: false,
 }
 
-export const getData: any = createAsyncThunk(
-  'fetch/getData',
-  async ({ rejectWithValue }: any) => {
+export const postData: any = createAsyncThunk(
+  'post/postData',
+  async (arg: any, { rejectWithValue }: any) => {
     try {
       const fetchedData: any = await axios({
-        method: 'get',
+        method: 'post',
         url: `https://weather-d392d-default-rtdb.asia-southeast1.firebasedatabase.app/data.json`,
+        data: arg,
       })
 
       return fetchedData
@@ -25,22 +26,22 @@ export const getData: any = createAsyncThunk(
   },
 )
 
-export const fetchSlice = createSlice({
-  name: 'fetch',
+export const postSlice = createSlice({
+  name: 'post',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
-    builder.addCase(getData.pending, (state, action) => {
+    builder.addCase(postData.pending, (state, action) => {
       // Add user to the state array
       state.loading = true
     })
-    builder.addCase(getData.fulfilled, (state, action) => {
+    builder.addCase(postData.fulfilled, (state, action) => {
       state.loading = false
       state.data = action.payload
       state.isSuccess = true
     })
-    builder.addCase(getData.rejected, (state, action) => {
+    builder.addCase(postData.rejected, (state, action) => {
       state.message = action.payload
       state.loading = false
       state.isSuccess = false
@@ -48,4 +49,4 @@ export const fetchSlice = createSlice({
   },
 })
 
-export default fetchSlice
+export default postSlice

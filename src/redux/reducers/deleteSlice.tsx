@@ -9,13 +9,13 @@ const initialState = {
   loading: false,
 }
 
-export const getData: any = createAsyncThunk(
-  'fetch/getData',
-  async ({ rejectWithValue }: any) => {
+export const deleteData: any = createAsyncThunk(
+  'delete/deleteData',
+  async (arg: any, { rejectWithValue }: any) => {
     try {
       const fetchedData: any = await axios({
-        method: 'get',
-        url: `https://weather-d392d-default-rtdb.asia-southeast1.firebasedatabase.app/data.json`,
+        method: 'delete',
+        url: `https://weather-d392d-default-rtdb.asia-southeast1.firebasedatabase.app/data/${arg}.json`,
       })
 
       return fetchedData
@@ -25,22 +25,22 @@ export const getData: any = createAsyncThunk(
   },
 )
 
-export const fetchSlice = createSlice({
-  name: 'fetch',
+export const deleteSlice = createSlice({
+  name: 'delete',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
-    builder.addCase(getData.pending, (state, action) => {
+    builder.addCase(deleteData.pending, (state, action) => {
       // Add user to the state array
       state.loading = true
     })
-    builder.addCase(getData.fulfilled, (state, action) => {
+    builder.addCase(deleteData.fulfilled, (state, action) => {
       state.loading = false
       state.data = action.payload
       state.isSuccess = true
     })
-    builder.addCase(getData.rejected, (state, action) => {
+    builder.addCase(deleteData.rejected, (state, action) => {
       state.message = action.payload
       state.loading = false
       state.isSuccess = false
@@ -48,4 +48,4 @@ export const fetchSlice = createSlice({
   },
 })
 
-export default fetchSlice
+export default deleteSlice
