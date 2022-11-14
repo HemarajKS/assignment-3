@@ -1,10 +1,17 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { deleteData } from '../../redux/reducers/deleteSlice'
 import { getData } from '../../redux/reducers/fetchSlice'
 
 const Body = () => {
+  const dispatch = useDispatch()
   const userData = useSelector((state: any) => state.fetch.data.data)
   console.log('userData', userData && Object.keys(userData))
+  const deleted = useSelector((state: any) => state.delete.data)
+
+  useEffect(() => {
+    getData()
+  }, [deleted])
 
   return (
     <div>
@@ -18,7 +25,13 @@ const Body = () => {
                 <div className="item">{userData[key].address}</div>
               </div>
               <div className="delete">
-                <button>Delete</button>
+                <button
+                  onClick={() => {
+                    dispatch(deleteData(key))
+                  }}
+                >
+                  Delete
+                </button>
               </div>
               <hr />
             </div>
