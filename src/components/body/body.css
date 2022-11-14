@@ -6,3 +6,34 @@
   display: flex;
   justify-content: space-between;
 }
+
+.bodyItems {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3.5px;
+}
+
+.itemcontainer {
+  border: 0.5px solid #0000002b;
+  padding: 1%;
+  border-radius: 5px;
+  width: 94%;
+  display: flex;
+  gap: 1.5em;
+}
+
+.itemcontainer > div {
+  font-size: 1.2em;
+}
+
+button.deleteButton {
+  color: white;
+  background-color: red;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  font-size: 1.3em;
+  padding: 0.2em 1em;
+  margin-left: 11px;
+  cursor: pointer;
+}

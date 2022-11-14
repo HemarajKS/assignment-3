@@ -32,8 +32,9 @@ const Body = () => {
                   onClick={() => {
                     dispatch(deleteData(key));
                   }}
+                  className="deleteButton"
                 >
-                  Delete
+                  Remove
                 </button>
               </div>
             </div>
