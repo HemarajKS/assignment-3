@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const initialState = {
   message: '',
-  data: [],
+  data: {},
   isSuccess: false,
   loading: false,
 }
@@ -14,9 +14,9 @@ export const getData: any = createAsyncThunk(
   async (arg: any, { rejectWithValue }) => {
     try {
       const fetchedData: any = await axios({
-        method: 'get',
-        url: `https://weather-d392d-default-rtdb.asia-southeast1.firebasedatabase.app/snehal.json`,
-        data: '',
+        method: arg.method,
+        url: `https://weather-d392d-default-rtdb.asia-southeast1.firebasedatabase.app/${arg.url}`,
+        data: arg.data,
       })
 
       return fetchedData
