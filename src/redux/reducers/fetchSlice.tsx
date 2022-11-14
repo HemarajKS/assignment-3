@@ -11,7 +11,7 @@ const initialState = {
 
 export const getData: any = createAsyncThunk(
   'fetch/getData',
-  async ({ rejectWithValue }: any) => {
+  async (arg, { rejectWithValue }: any) => {
     try {
       const fetchedData: any = await axios({
         method: 'get',
