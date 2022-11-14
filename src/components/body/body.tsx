@@ -9,8 +9,10 @@ const Body = () => {
   console.log('userData', userData && Object.keys(userData))
   const deleted = useSelector((state: any) => state.delete.data)
 
+  console.log('del', deleted && deleted.status)
+
   useEffect(() => {
-    getData()
+    dispatch(getData())
   }, [deleted])
 
   return (
