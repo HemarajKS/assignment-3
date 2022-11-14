@@ -45,7 +45,7 @@ const InputForm = () => {
             placeholder="Address"
           />
         </div>
-        <button>Add</button>
+        <button className="addButton">ADD</button>
       </form>
     </div>
   );

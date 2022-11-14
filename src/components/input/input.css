@@ -9,3 +9,15 @@
   display: flex;
   gap: 3%;
 }
+
+.addButton {
+  margin-top: 1em;
+  border: none;
+  outline: none;
+  background-color: rgb(76, 198, 31);
+  color: white;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
