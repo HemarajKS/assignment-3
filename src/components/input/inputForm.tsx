@@ -1,7 +1,8 @@
-import { postData } from '../redux/reducers/postSlice'
+import { postData } from '../../redux/reducers/postSlice'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { getData } from '../redux/reducers/fetchSlice'
+import { getData } from '../../redux/reducers/fetchSlice'
+import { useEffect } from 'react'
 
 const InputForm = () => {
   const dispatch = useDispatch()
@@ -19,6 +20,12 @@ const InputForm = () => {
       alert('enter all fields')
     }
   }
+
+  const post = useSelector((state: any) => state.post.data)
+
+  useEffect(() => {
+    dispatch(getData())
+  }, [post])
 
   return (
     <div className="inputForm">
