@@ -1,0 +1,8 @@
+.bodyContainer {
+  width: 100%;
+  margin-top: 2em;
+}
+.bodyItems {
+  display: flex;
+  justify-content: space-between;
+}
