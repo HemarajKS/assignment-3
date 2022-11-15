@@ -1,57 +1,58 @@
 .bodyContainer {
-  width: 100%;
-  margin-top: 2em;
-}
-.bodyItems {
-  display: flex;
-  justify-content: space-between;
+    width: 100%;
+    margin-top: 2em;
 }
 
 .bodyItems {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 3.5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bodyItems {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3.5px;
 }
 
 .itemcontainer {
-  border: 0.5px solid #0000002b;
-  padding: 1%;
-  border-radius: 5px;
-  width: 94%;
-  display: flex;
-  gap: 1.5em;
+    border: 0.5px solid #0000002b;
+    padding: 1%;
+    border-radius: 5px;
+    width: 94%;
+    display: flex;
+    gap: 1.5em;
 }
 
-.itemcontainer > div {
-  font-size: 1.2em;
+.itemcontainer>div {
+    font-size: 1.2em;
 }
 
 button.deleteButton {
-  color: white;
-  background-color: rgba(227, 12, 12, 0.827);
-  border: none;
-  outline: none;
-  border-radius: 4px;
-  font-size: 1.3em;
-  padding: 0.2em 1em;
-  margin-left: 11px;
-  cursor: pointer;
+    color: white;
+    background-color: rgba(227, 12, 12, 0.827);
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    font-size: 1.3em;
+    padding: 0.2em 1em;
+    margin-left: 11px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 950px) {
-  .itemcontainer {
-    gap: 0.5em;
-    flex-direction: column;
-  }
+    .itemcontainer {
+        gap: 0.5em;
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 475px) {
-  .bodyItems {
-    flex-direction: column;
-    margin-bottom: 30px;
-  }
-
-  button.deleteButton {
-    margin: 2px 0 0 0;
-  }
+    .bodyItems {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+    button.deleteButton {
+        margin: 2px 0 0 0;
+    }
 }
